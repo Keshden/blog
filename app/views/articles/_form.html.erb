@@ -11,15 +11,19 @@
 <%= form_for @article do |f| %>
   <p>
     <%= f.label :title %>
+  </p>
+  <p>
     <%= f.text_field :title %>
   </p>
   <p>
     <%= f.label :description %>
+  </p>
+  <p>
     <%= f.text_area :description %>
   </p>
   <p>
     <%= f.submit %>
   </p>
   <% end %>
-  
+
   <%= link_to "Return to Articles", articles_path %>
