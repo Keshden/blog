@@ -12,11 +12,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
     if @article.save
       flash[:success] = "You're article was successfully created"
       redirect_to article_path(@article)
@@ -26,7 +26,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:success] = "You're article successfully updated"
       redirect_to article_path(@article)
